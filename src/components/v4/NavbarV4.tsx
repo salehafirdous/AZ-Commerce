@@ -10,6 +10,7 @@ const NavbarV4 = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [mobileActiveDropdown, setMobileActiveDropdown] = useState<string | null>(null);
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -121,20 +122,98 @@ const NavbarV4 = () => {
                             className="lg:hidden mt-4 pt-4 border-t border-slate-100 overflow-hidden"
                         >
                             <div className="space-y-6 pb-6">
-                                <div className="grid grid-cols-2 gap-3">
-                                    {products.slice(0, 4).map(p => (
-                                        <Link key={p.name} href={p.href} className="flex flex-col gap-2 p-4 rounded-xl bg-slate-50" onClick={() => setMobileMenuOpen(false)}>
-                                            <p.icon size={20} className="text-orange-600" />
-                                            <span className="text-[13px] font-bold text-[#0f172a]">{p.name}</span>
-                                        </Link>
-                                    ))}
-                                </div>
-                                <div className="flex flex-col gap-4 px-2">
-                                    <Link href="/industries" className="text-base font-bold text-[#0f172a]">Industries</Link>
-                                    <Link href="/pricing" className="text-base font-bold text-[#0f172a]">Pricing</Link>
-                                    <Link href="/resources" className="text-base font-bold text-[#0f172a]">Resources</Link>
-                                    <hr className="border-slate-100" />
-                                    <Link href="/login" className="text-base font-bold text-[#0f172a]">Login</Link>
+                                <div className="flex flex-col gap-2 px-2">
+                                    {/* Products Dropdown */}
+                                    <div className="flex flex-col">
+                                        <button
+                                            onClick={() => setMobileActiveDropdown(mobileActiveDropdown === 'products' ? null : 'products')}
+                                            className="flex items-center justify-between text-base font-bold text-[#0f172a] py-2"
+                                        >
+                                            Products
+                                            <ChevronDown size={18} className={cn("transition-transform", mobileActiveDropdown === 'products' && "rotate-180")} />
+                                        </button>
+                                        <AnimatePresence>
+                                            {mobileActiveDropdown === 'products' && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <div className="grid grid-cols-2 gap-3 py-3">
+                                                        {products.map(p => (
+                                                            <Link key={p.name} href={p.href} className="flex flex-col gap-2 p-3 rounded-xl bg-slate-50" onClick={() => setMobileMenuOpen(false)}>
+                                                                <p.icon size={18} className="text-orange-600" />
+                                                                <span className="text-[12px] font-bold text-[#0f172a]">{p.name}</span>
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+
+                                    {/* Industries Dropdown */}
+                                    <div className="flex flex-col">
+                                        <button
+                                            onClick={() => setMobileActiveDropdown(mobileActiveDropdown === 'industries' ? null : 'industries')}
+                                            className="flex items-center justify-between text-base font-bold text-[#0f172a] py-2"
+                                        >
+                                            Industries
+                                            <ChevronDown size={18} className={cn("transition-transform", mobileActiveDropdown === 'industries' && "rotate-180")} />
+                                        </button>
+                                        <AnimatePresence>
+                                            {mobileActiveDropdown === 'industries' && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <div className="flex flex-col gap-2 py-2 pl-4 border-l-2 border-slate-100 ml-2">
+                                                        <Link href="/industries/distributors" className="text-sm font-medium text-slate-600 py-1" onClick={() => setMobileMenuOpen(false)}>Distributors</Link>
+                                                        <Link href="/industries/fashion-and-clothing" className="text-sm font-medium text-slate-600 py-1" onClick={() => setMobileMenuOpen(false)}>Fashion & Clothing</Link>
+                                                        <Link href="/industries/grocery-stores" className="text-sm font-medium text-slate-600 py-1" onClick={() => setMobileMenuOpen(false)}>Grocery Stores</Link>
+                                                        <Link href="/industries/pharmacies" className="text-sm font-medium text-slate-600 py-1" onClick={() => setMobileMenuOpen(false)}>Pharmacies</Link>
+                                                        <Link href="/industries/restaurants" className="text-sm font-medium text-slate-600 py-1" onClick={() => setMobileMenuOpen(false)}>Restaurants</Link>
+                                                        <Link href="/industries/retail-shops" className="text-sm font-medium text-slate-600 py-1" onClick={() => setMobileMenuOpen(false)}>Retail Shops</Link>
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+
+                                    <Link href="/pricing" className="text-base font-bold text-[#0f172a] py-2" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
+
+                                    {/* Resources Dropdown */}
+                                    <div className="flex flex-col">
+                                        <button
+                                            onClick={() => setMobileActiveDropdown(mobileActiveDropdown === 'resources' ? null : 'resources')}
+                                            className="flex items-center justify-between text-base font-bold text-[#0f172a] py-2"
+                                        >
+                                            Resources
+                                            <ChevronDown size={18} className={cn("transition-transform", mobileActiveDropdown === 'resources' && "rotate-180")} />
+                                        </button>
+                                        <AnimatePresence>
+                                            {mobileActiveDropdown === 'resources' && (
+                                                <motion.div
+                                                    initial={{ height: 0, opacity: 0 }}
+                                                    animate={{ height: "auto", opacity: 1 }}
+                                                    exit={{ height: 0, opacity: 0 }}
+                                                    className="overflow-hidden"
+                                                >
+                                                    <div className="flex flex-col gap-2 py-2 pl-4 border-l-2 border-slate-100 ml-2">
+                                                        <Link href="/resources/blog" className="text-sm font-medium text-slate-600 py-1" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
+                                                        <Link href="/resources/help" className="text-sm font-medium text-slate-600 py-1" onClick={() => setMobileMenuOpen(false)}>Help Center</Link>
+                                                        <Link href="/resources/api" className="text-sm font-medium text-slate-600 py-1" onClick={() => setMobileMenuOpen(false)}>API Docs</Link>
+                                                    </div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
+
+                                    <hr className="border-slate-100 my-2" />
+                                    <Link href="/login" className="text-base font-bold text-[#0f172a] py-2" onClick={() => setMobileMenuOpen(false)}>Login</Link>
                                 </div>
                             </div>
                         </motion.div>

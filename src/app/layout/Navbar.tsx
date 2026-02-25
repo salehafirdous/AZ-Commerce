@@ -16,6 +16,7 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -248,27 +249,101 @@ const Navbar = () => {
                             exit={{ opacity: 0, height: 0 }}
                             className="lg:hidden mt-4 pt-4 border-t border-slate-100 overflow-hidden"
                         >
-                            <div className="space-y-6 pb-6">
-                                <div className="grid grid-cols-2 gap-3">
-                                    {products.slice(0, 4).map(p => (
-                                        <Link key={p.name} href={p.href} className="flex flex-col gap-2 p-4 rounded-xl bg-slate-50" onClick={() => setMobileMenuOpen(false)}>
-                                            <p.icon size={20} className="text-orange-600" />
-                                            <span className="text-[13px] font-bold text-[#0f172a]">{p.name}</span>
-                                        </Link>
-                                    ))}
+                            <div className="flex flex-col gap-2 px-2 pb-6">
+                                {/* Products Dropdown */}
+                                <div className="flex flex-col">
+                                    <button
+                                        onClick={() => setActiveMobileDropdown(activeMobileDropdown === 'products' ? null : 'products')}
+                                        className="flex items-center justify-between text-base font-bold text-[#0f172a] py-2"
+                                    >
+                                        Products
+                                        <ChevronDown size={18} className={cn("transition-transform", activeMobileDropdown === 'products' && "rotate-180")} />
+                                    </button>
+                                    <AnimatePresence>
+                                        {activeMobileDropdown === 'products' && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: "auto", opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                className="overflow-hidden"
+                                            >
+                                                <div className="flex flex-col gap-2 py-2 pl-4 border-l-2 border-slate-100 ml-2">
+                                                    {products.map(p => (
+                                                        <Link key={p.name} href={p.href} className="text-sm font-medium text-slate-600 py-2 flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
+                                                            <p.icon size={16} className="text-orange-600" />
+                                                            {p.name}
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
                                 </div>
-                                <div className="flex flex-col gap-4 px-2">
-                                    <Link href="/industries" className="text-base font-bold text-[#0f172a]">Industries</Link>
-                                    <Link href="/pricing" className="text-base font-bold text-[#0f172a]">Pricing</Link>
-                                    <Link href="/resources" className="text-base font-bold text-[#0f172a]">Resources</Link>
-                                    <Link href="/resources/documentation" className="text-base font-bold text-[#0f172a]">Documentation</Link>
-                                    <Link href="/resources/api-reference" className="text-base font-bold text-[#0f172a]">API Reference</Link>
-                                    <Link href="/resources/help-center" className="text-base font-bold text-[#0f172a]">Help Center</Link>
-                                    <Link href="/resources/community" className="text-base font-bold text-[#0f172a]">Community</Link>
-                                    <Link href="/resources/video-tutorials" className="text-base font-bold text-[#0f172a]">Video Tutorials</Link>
-                                    <hr className="border-slate-100" />
-                                    <Link href="/login" className="text-base font-bold text-[#0f172a]">Login</Link>
+
+                                {/* Industries Dropdown */}
+                                <div className="flex flex-col">
+                                    <button
+                                        onClick={() => setActiveMobileDropdown(activeMobileDropdown === 'industries' ? null : 'industries')}
+                                        className="flex items-center justify-between text-base font-bold text-[#0f172a] py-2"
+                                    >
+                                        Industries
+                                        <ChevronDown size={18} className={cn("transition-transform", activeMobileDropdown === 'industries' && "rotate-180")} />
+                                    </button>
+                                    <AnimatePresence>
+                                        {activeMobileDropdown === 'industries' && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: "auto", opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                className="overflow-hidden"
+                                            >
+                                                <div className="flex flex-col gap-2 py-2 pl-4 border-l-2 border-slate-100 ml-2">
+                                                    {industries.map(i => (
+                                                        <Link key={i.name} href={i.href} className="text-sm font-medium text-slate-600 py-2 flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
+                                                            <i.icon size={16} className="text-orange-600" />
+                                                            {i.name}
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
                                 </div>
+
+                                <Link href="/pricing" className="text-base font-bold text-[#0f172a] py-2" onClick={() => setMobileMenuOpen(false)}>Pricing</Link>
+
+                                {/* Resources Dropdown */}
+                                <div className="flex flex-col">
+                                    <button
+                                        onClick={() => setActiveMobileDropdown(activeMobileDropdown === 'resources' ? null : 'resources')}
+                                        className="flex items-center justify-between text-base font-bold text-[#0f172a] py-2"
+                                    >
+                                        Resources
+                                        <ChevronDown size={18} className={cn("transition-transform", activeMobileDropdown === 'resources' && "rotate-180")} />
+                                    </button>
+                                    <AnimatePresence>
+                                        {activeMobileDropdown === 'resources' && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: "auto", opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                className="overflow-hidden"
+                                            >
+                                                <div className="flex flex-col gap-2 py-2 pl-4 border-l-2 border-slate-100 ml-2">
+                                                    {resources.map(r => (
+                                                        <Link key={r.name} href={r.href} className="text-sm font-medium text-slate-600 py-2 flex items-center gap-3" onClick={() => setMobileMenuOpen(false)}>
+                                                            <r.icon size={16} className="text-orange-600" />
+                                                            {r.name}
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+
+                                <hr className="border-slate-100 my-2" />
+                                <Link href="/login" className="text-base font-bold text-[#0f172a] py-2" onClick={() => setMobileMenuOpen(false)}>Login</Link>
                             </div>
                         </motion.div>
                     )}
