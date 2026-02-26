@@ -1,5 +1,31 @@
 @import "tailwindcss";
 
+@layer base {
+  @font-face {
+    font-family: 'Airtable Haas';
+    src: url('https://static.airtable.com/font/NeueHaasGrotTextRound-55Roman-Web.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Airtable Haas';
+    src: url('https://static.airtable.com/font/NeueHaasGrotTextRound-65Medium-Web.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Airtable Haas';
+    src: url('https://static.airtable.com/font/NeueHaasGrotTextRound-75Bold-Web.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
 @theme {
   --color-primary: #3b82f6;
   --color-secondary: #8b5cf6;
@@ -7,9 +33,9 @@
   --color-background: #ffffff;
   --color-foreground: #0f172a;
 
-  /* ✅ Updated to Inter */
-  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
-  --font-display: var(--font-inter), system-ui, -apple-system, sans-serif;
+  /* ✅ Updated to Airtable Font */
+  --font-sans: "Airtable Haas", system-ui, -apple-system, sans-serif;
+  --font-display: "Airtable Haas", system-ui, -apple-system, sans-serif;
 
   --radius-xl: 1rem;
   --radius-2xl: 1.5rem;
