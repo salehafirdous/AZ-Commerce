@@ -12,7 +12,7 @@ const Footer = () => {
                 { name: "POS Billing", href: "/products/pos-billing" },
                 { name: "Inventory Management", href: "/products/inventory" },
                 { name: "E-commerce Builder", href: "/products/web-builder" },
-                { name: "Vendor System", href: "/products/vendor" },
+                { name: "Vendor System", href: "/products/vendor-system" },
                 { name: "Delivery Tracking", href: "/products/delivery" },
                 { name: "Mobile Apps", href: "/products/mobile-apps" },
                 { name: "Admin Portal", href: "/products/admin-portal" },
@@ -30,7 +30,7 @@ const Footer = () => {
             title: "Industries",
             links: [
                 { name: "Grocery Stores", href: "/industries/grocery-stores" },
-                { name: "Restaurants", href: "/industries/restaurents" },
+                { name: "Restaurants", href: "/industries/restaurants" },
                 { name: "Pharmacies", href: "/industries/pharmacies" },
                 { name: "Retail Shops", href: "/industries/retail-shops" },
                 { name: "Distributors", href: "/industries/distributors" }
