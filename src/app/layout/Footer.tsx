@@ -39,11 +39,11 @@ const Footer = () => {
         {
             title: "Resources",
             links: [
-                { name: "Documentation", href: "resources/documentation" },
-                { name: "API Reference", href: "resources/api-reference" },
-                { name: "Help Center", href: "resources/help-center" },
-                { name: "Community", href: "resources/community" },
-                { name: "Video Tutorials", href: "resources/video-tutorials" }
+                { name: "Documentation", href: "/resources/documentation" },
+                { name: "API Reference", href: "/resources/api-reference" },
+                { name: "Help Center", href: "/resources/help-center" },
+                { name: "Community", href: "/resources/community" },
+                { name: "Video Tutorials", href: "/resources/video-tutorials" }
             ]
         },
         {
