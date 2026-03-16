@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Mail, MessageSquare, Phone, MapPin, Send, ArrowRight, Github, Twitter, Linkedin } from "lucide-react";
 import { useState, useRef } from "react";
-import emailjs from '@emailjs/browser';
 
 export default function ContactPage() {
     const formRef = useRef<HTMLFormElement>(null);
@@ -21,17 +20,23 @@ export default function ContactPage() {
         setErrorMessage("");
 
         try {
-            await emailjs.send(
-                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-                {
-                    from_name: formRef.current.from_name.value,
-                    from_email: formRef.current.from_email.value,
+            const response = await fetch("https://formsubmit.co/ajax/salehasyed78@gmail.com", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    name: formRef.current.from_name.value,
+                    email: formRef.current.from_email.value,
                     subject: formRef.current.subject.value,
                     message: formRef.current.message.value,
-                },
-                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-            );
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to send message");
+            }
 
             setSuccessMessage("Message sent successfully!");
             formRef.current.reset();
