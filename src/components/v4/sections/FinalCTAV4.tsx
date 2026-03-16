@@ -63,7 +63,7 @@ const FinalCTAV4 = () => {
                             className="flex flex-wrap justify-center gap-6"
                         >
                             <Link
-                                href="/v4/signup"
+                                href="/signup"
                                 className="px-10 py-5 bg-orange-600 text-white rounded-2xl font-black text-lg hover:bg-orange-700 transition-all shadow-2xl shadow-orange-600/30 active:scale-95 flex items-center gap-3 group uppercase tracking-widest"
                             >
                                 Start Free Trial <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />

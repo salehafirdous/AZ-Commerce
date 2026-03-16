@@ -58,7 +58,7 @@ const AdminPortalHero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="text-5xl md:text-7xl font-display font-semibold text-[#0f172a] leading-[0.95] tracking-tight mb-8"
+                            className="text-4xl sm:text-5xl md:text-7xl font-display font-semibold text-[#0f172a] leading-[0.95] tracking-tight mb-8"
                         >
                             Total Control<br />
                             <span className="text-orange-600 italic">Absolute</span> <br />
@@ -78,12 +78,12 @@ const AdminPortalHero = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="flex flex-wrap gap-4 mb-12"
+                            className="flex flex-col sm:flex-row flex-wrap gap-4 mb-12"
                         >
-                            <Link href="/v4/signup" className="px-8 py-4 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-xl shadow-orange-600/20 active:scale-95 flex items-center gap-3 group">
+                            <Link href="/v4/signup" className="px-8 py-4 bg-orange-600 text-white rounded-xl font-bold hover:bg-orange-700 transition-all shadow-xl shadow-orange-600/20 active:scale-95 flex items-center justify-center gap-3 group w-full sm:w-auto">
                                 Start Free Trial <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                             </Link>
-                            <button className="px-8 py-4 bg-white text-[#0f172a] border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition-all flex items-center gap-3 shadow-lg shadow-slate-200/10">
+                            <button className="px-8 py-4 bg-white text-[#0f172a] border border-slate-200 rounded-xl font-bold hover:bg-slate-50 transition-all flex items-center justify-center gap-3 shadow-lg shadow-slate-200/10 w-full sm:w-auto">
                                 <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
                                     <Play size={16} className="fill-[#0f172a] translate-x-0.5" />
                                 </div>
@@ -109,13 +109,13 @@ const AdminPortalHero = () => {
                         className="relative perspective-1000"
                     >
                         <div className="bg-white rounded-[2rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.12)] border border-slate-200/60 overflow-hidden relative z-10 transition-transform hover:scale-[1.02] duration-700">
-                            <div className="h-12 bg-slate-50/80 border-b border-slate-200 flex items-center px-8 gap-2.5">
-                                <div className="flex gap-1.5">
+                            <div className="h-12 bg-slate-50/80 border-b border-slate-200 flex items-center px-4 sm:px-8 gap-2.5">
+                                <div className="flex gap-1.5 hidden sm:flex">
                                     <div className="w-3 h-3 rounded-full bg-slate-300" />
                                     <div className="w-3 h-3 rounded-full bg-slate-300" />
                                     <div className="w-3 h-3 rounded-full bg-slate-300" />
                                 </div>
-                                <div className="mx-auto bg-white px-24 py-1.5 rounded-lg border border-slate-200 text-[10px] text-slate-300 font-medium">
+                                <div className="mx-auto bg-white px-4 sm:px-24 py-1.5 rounded-lg border border-slate-200 text-[10px] text-slate-300 font-medium truncate max-w-[200px] sm:max-w-none">
                                     admin.azcommerce.com
                                 </div>
                             </div>
@@ -133,28 +133,28 @@ const AdminPortalHero = () => {
                         <motion.div
                             animate={{ y: [0, -12, 0] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute -top-12 -right-12 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/50 z-20 flex items-center gap-4"
+                            className="absolute -top-4 -right-4 sm:-top-12 sm:-right-12 bg-white/90 backdrop-blur-md p-3 sm:p-5 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/50 z-20 flex items-center gap-3 sm:gap-4 scale-75 sm:scale-100 origin-top-right"
                         >
-                            <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center">
-                                <Users size={24} />
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center">
+                                <Users size={20} className="sm:w-6 sm:h-6" />
                             </div>
                             <div>
-                                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Active Users</div>
-                                <div className="text-xl font-bold text-slate-900">1,204 Roles</div>
+                                <div className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Active Users</div>
+                                <div className="text-lg sm:text-xl font-bold text-slate-900">1,204 Roles</div>
                             </div>
                         </motion.div>
 
                         <motion.div
                             animate={{ y: [0, 12, 0] }}
                             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                            className="absolute -bottom-8 -left-8 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/50 z-20 flex items-center gap-4"
+                            className="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-8 bg-white/90 backdrop-blur-md p-3 sm:p-5 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-white/50 z-20 flex items-center gap-3 sm:gap-4 scale-75 sm:scale-100 origin-bottom-left"
                         >
-                            <div className="w-12 h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center">
-                                <Lock size={24} />
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center">
+                                <Lock size={20} className="sm:w-6 sm:h-6" />
                             </div>
                             <div>
-                                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Security Status</div>
-                                <div className="text-sm font-bold text-slate-900">Protected</div>
+                                <div className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Security Status</div>
+                                <div className="text-xs sm:text-sm font-bold text-slate-900">Protected</div>
                             </div>
                         </motion.div>
 

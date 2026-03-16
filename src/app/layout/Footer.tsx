@@ -19,11 +19,6 @@ const Footer = () => {
                 { name: "Analytics", href: "/products/analytics" },
                 { name: "CRM", href: "/products/crm" }
 
-
-
-
-
-
             ]
         },
         {

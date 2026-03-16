@@ -42,7 +42,7 @@ const NavbarV4 = () => {
             )}>
                 <div className="flex items-center justify-between">
                     {/* Logo */}
-                    <Link href="/v4" className="flex items-center gap-2 group">
+                    <Link href="/" className="flex items-center gap-2 group">
                         <div className="w-9 h-9 bg-orange-600 rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform">
                             <span className="text-white font-black text-xl italic leading-none">A</span>
                         </div>

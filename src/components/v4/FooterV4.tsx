@@ -15,9 +15,9 @@ const FooterV4 = () => {
                 { name: "Vendor System", href: "/products/vendor" },
                 { name: "Delivery Tracking", href: "/products/delivery" },
                 { name: "Mobile Apps", href: "/products/mobile-apps" },
-                { name: "Admin Portal", href: "/v4/products/admin-portal" },
-                { name: "Analytics", href: "/v4/products/analytics" },
-                { name: "CRM", href: "/v4/products/crm" }
+                { name: "Admin Portal", href: "/products/admin-portal" },
+                { name: "Analytics", href: "/products/analytics" },
+                { name: "CRM", href: "/products/crm" }
 
 
 
@@ -64,7 +64,7 @@ const FooterV4 = () => {
                 <div className="grid grid-cols-2 lg:grid-cols-6 gap-12 mb-20">
                     {/* Logo and Contact */}
                     <div className="col-span-2 space-y-8">
-                        <Link href="/v4" className="flex items-center gap-2 group">
+                        <Link href="/" className="flex items-center gap-2 group">
                             <div className="w-10 h-10 bg-orange-600 rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform">
                                 <span className="text-white font-black text-2xl italic leading-none">A</span>
                             </div>
